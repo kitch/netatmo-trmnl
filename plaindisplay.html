@@ -1,0 +1,73 @@
+<div class="layout">
+  <div class="columns">
+    <div class="column">
+      <span class="title">Indoor</span>
+      <table class="table">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="title">Temperature</span></td>
+            <td><span class="title">{{ indoor_temp }}</span></td>
+          </tr>
+          <tr>
+            <td><span class="title title--small">Humidity</span></td>
+            <td><span class="label">{{ indoor_humidity }}</span></td>
+          </tr>
+          <tr>
+            <td><span class="title title--small">Noise</span></td>
+            <td><span class="label">{{ noise }}</span></td>
+          </tr>
+          <tr>
+            <td><span class="title title--small">CO2</span></td>
+            <td><span class="label">{{ co2 }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="column">
+      <span class="title">Outdoor</span>
+      <table class="table">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="title">Temperature</span></td>
+            <td><span class="title">{{ outdoor_temp }}</span></td>
+          </tr>
+          <tr>
+            <td><span class="title title--small">Humidity</span></td>
+            <td><span class="label">{{ outdoor_humidity }}</span></td>
+          </tr>
+          <tr>
+            <td><span class="title title--small">Pressure</span></td>
+            <td><span class="label">{{ pressure }}</span></td>
+          </tr>
+          <tr>
+            <td><span class="title title--small">Wind Speed</span></td>
+            <td><span class="label">{{ wind_speed }}</span></td>
+          </tr>
+          <tr>
+            <td><span class="title title--small">Wind Gusts</span></td>
+            <td><span class="label">{{ gust_speed }}</span></td>
+          </tr>
+          <tr>
+            <td><span class="title title--small">Rain (hour)</span></td>
+            <td><span class="label">{{ rain_1h }}</span></td>
+          </tr>
+          <tr>
+            <td><span class="title title--small">Rain (day)</span></td>
+            <td><span class="label">{{ rain_24h }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="title_bar">
+  <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg">
+  <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
+  <span class="instance">Raleigh, NC</span>
+</div>

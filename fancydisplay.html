@@ -1,0 +1,114 @@
+<div class="layout layout--col gap--space-between">
+  <!-- Optional data metrics displayed above chart -->
+  <div class="grid">
+    <div class="row">
+      <div class="grid">
+        <div class="item col--span-1">
+          <div class="meta"></div>
+          <div class="content">
+            <span class="value value--large value--tnums">{{ outdoor_temp }}</span>
+            <span class="label">Outdoor Temp</span>
+          </div>
+        </div>
+
+        <div class="item col--span-1">
+          <div class="meta"></div>
+          <div class="content">
+            <span class="value value--large value--tnums">{{ outdoor_humidity }}</span>
+            <span class="label">Outdoor Humidity</span>
+          </div>
+        </div>
+
+        <div class="item col--span-1">
+          <div class="meta"></div>
+          <div class="content">
+            <span class="value value--small value--tnums">{{ rain_1h }}</span>
+            <span class="label">Rain (hour)</span>
+            <span class="value value--small value--tnums">{{ rain_24h }}</span>
+            <span class="label">Rain (day)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="border--h-5 w--full"></div>
+
+  <!-- More metrics if needed -->
+  <div class="grid">
+    <div class="row">
+      <div class="grid">
+        <div class="item col--span-1">
+          <div class="meta"></div>
+          <div class="content">
+            <span class="value value--large value--tnums">{{ indoor_temp }}</span>
+            <span class="label">Indoor Temp</span>
+          </div>
+        </div>
+
+        <div class="item col--span-1">
+          <div class="meta"></div>
+          <div class="content">
+            <span class="value value--large value--tnums">{{ indoor_humidity }}</span>
+            <span class="label">Indoor Humidity</span>
+          </div>
+        </div>
+
+        <div class="item col--span-1">
+          <div class="meta"></div>
+          <div class="content">
+            <span class="value value--small value--tnums">{{ wind_speed }}</span>
+            <span class="label">Wind Speed</span>
+            <span class="value value--small value--tnums">{{ gust_speed }}</span>
+            <span class="label">Wind Gusts</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="border--h-5 w--full"></div>
+
+  <!-- More metrics if needed -->
+  <div class="grid">
+    <div class="row">
+      <div class="grid">
+        <div class="item col--span-1">
+          <div class="meta"></div>
+          <div class="content">
+            <span class="value value--small value--tnums">{{ forecast_high }}</span>
+            <span class="label">Forecast High </span>
+            <span class="value value--small value--tnums">{{ forecast_low }}</span>
+            <span class="label">Forecast Low</span>
+          </div>
+        </div>
+
+        <div class="item col--span-1">
+          <div class="meta"></div>
+          <div class="content">
+            <span class="value value--small value--tnums">{{ forecast_rain_chance }}</span>
+            <span class="label">Rain Chance</span>
+            <span class="value value--small value--tnums">{{ forecast_rain_in }}
+
+</span>
+            <span class="label">Rain Ammount</span>
+          </div>
+        </div>
+
+        <div class="item col--span-1">
+          <div class="meta"></div>
+          <div class="content">
+            <span class="value value--small value--tnums">{{ sunrise }}</span>
+            <span class="label">Sunrise</span>
+            <span class="value value--small value--tnums">{{ sunset }}</span>
+            <span class="label">Sunset</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
