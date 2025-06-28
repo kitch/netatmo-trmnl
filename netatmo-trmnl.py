@@ -183,8 +183,8 @@ def push_to_terminal(data):
         "today_humidity": safe(data["today_humidity"], "%"),
         "today_rain_in": safe(data["today_rain_in"], " in"),
         "today_rain_chance": safe(data["today_rain_chance"],  "%"),
-        "sunrise": data["sunrise"],
-        "sunset": data["sunset"],
+        "today_sunrise": data["today_sunrise"],
+        "today_sunset": data["today_sunset"],
 
 
         # Optional: combined message
