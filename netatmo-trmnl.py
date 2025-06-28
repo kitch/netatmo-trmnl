@@ -119,7 +119,7 @@ def get_weather_data(token):
 
 # --- Get OpenWeather Forecast ---
 
-def get_forecast3():
+def get_forecast():
     key = os.getenv("OPENWEATHER_API_KEY")
     lat = os.getenv("LAT")
     lon = os.getenv("LON")
@@ -136,16 +136,24 @@ def get_forecast3():
     response = requests.get(url, params=params)
     response.raise_for_status()
     data = response.json()
+    tomorrow = data["daily"][1]
     today = data["daily"][0]
 
     return {
-        "forecast_high": round(today["temp"]["max"]),
-        "forecast_low": round(today["temp"]["min"]),
-        "forecast_humidity": today["humidity"],
-        "forecast_rain_in": mm_to_in(today.get("rain", 0)),
-        "forecast_rain_chance": round(today.get("pop", 0) * 100),
-        "sunrise": format_unix_time(today["sunrise"]),
-        "sunset": format_unix_time(today["sunset"])
+        "today_high": round(today["temp"]["max"]),
+        "today_low": round(today["temp"]["min"]),
+        "today_humidity": today["humidity"],
+        "today_rain_in": mm_to_in(today.get("rain", 0)),
+        "today_rain_chance": round(today.get("pop", 0) * 100),
+        "today_sunrise": format_unix_time(today["sunrise"]),
+        "today_sunset": format_unix_time(today["sunset"]),
+        "tomorrow_high": round(tomorrow["temp"]["max"]),
+        "tomorrow_low": round(tomorrow["temp"]["min"]),
+        "tomorrow_humidity": tomorrow["humidity"],
+        "tomorrow_rain_in": mm_to_in(tomorrow.get("rain", 0)),
+        "tomorrow_rain_chance": round(tomorrow.get("pop", 0) * 100),
+        "tomorrow_sunrise": format_unix_time(tomorrow["sunrise"]),
+        "tomorrow_sunset": format_unix_time(tomorrow["sunset"])
     }
 
 
@@ -156,8 +164,8 @@ def push_to_terminal(data):
 
     merge_variables = {
         # Converted + formatted
-        "indoor_temp": safe(c_to_f(data["indoor_temp_c"]), "°F"),
-        "outdoor_temp": safe(c_to_f(data["outdoor_temp_c"]), "°F"),
+        "indoor_temp": safe(c_to_f(data["indoor_temp_c"]), "°"),
+        "outdoor_temp": safe(c_to_f(data["outdoor_temp_c"]), "°"),
         "indoor_humidity": safe(data["indoor_humidity"], "%"),
         "outdoor_humidity": safe(data["outdoor_humidity"], "%"),
         "co2": safe(data["co2"], " ppm"),
@@ -170,8 +178,8 @@ def push_to_terminal(data):
         "gust_speed": safe(kmh_to_mph(data["gust_strength"]), " mph"),
         "wind_angle": safe(data["wind_angle"], "°"),
         "gust_angle": safe(data["gust_angle"], "°"),
-        "forecast_high": safe(data["forecast_high"], "°F"),
-        "forecast_low": safe(data["forecast_low"], "°F"),
+        "forecast_high": safe(data["forecast_high"], "°"),
+        "forecast_low": safe(data["forecast_low"], "°"),
         "forecast_humidity": safe(data["forecast_humidity"], "%"),
         "forecast_rain_in": safe(data["forecast_rain_in"], " in"),
         "forecast_rain_chance": safe(data["forecast_rain_chance"],  "%"),
@@ -197,6 +205,6 @@ def push_to_terminal(data):
 if __name__ == "__main__":
     token = get_access_token()
     netatmo = get_weather_data(token)
-    forecast = get_forecast3()
+    forecast = get_forecast()
     combined = { **netatmo, **forecast }
     push_to_terminal(combined)
